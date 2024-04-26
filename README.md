@@ -80,3 +80,18 @@ rules: {
 	'prettier/prettier': ['error',{endOfLine: 'auto'}],
 }
 ```
+
+## 설치한 Extention
+
+```
+Dothttp
+Dotbook
+SQLTool
+SQLTools SQLite
+```
+
+## 설치파일
+
+```
+npm install --save @nestjs/typeorm typeorm better-sqlite3
+```
