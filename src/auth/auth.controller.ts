@@ -12,7 +12,7 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login(@Body() userDto: UserDto): Promise<UserDto | undefined> {
+  async login(@Body() userDto: UserDto): Promise<{ access_token: string }> {
     return await this.authService.validateUser(userDto);
   }
 }

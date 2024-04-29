@@ -1,0 +1,57 @@
+- kind: 1
+  language: markdown
+  value: '# Cats CRUD'
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cat finaAll')\r\nGET http://localhost:3000/cats"
+  outputs:
+    - mime: application/vnd.code.notebook.stderr
+      value: >-
+        HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded
+        with url: /cats (Caused by
+        NewConnectionError('<urllib3.connection.HTTPConnection object at
+        0x000001ADA801EA50>: Failed to establish a new connection: [WinError
+        10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다'))
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cats findOne')\r\nGET http://localhost:3000/cats/d28fc6be-3baf-4948-aa1f-897cd9e0b1a4"
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cats create')\r\nPOST http://localhost:3000/cats\r\njson({\r\n    \"name\": \"JYS\",\r\n    \"age\": 22,\r\n    \"breed\": \"sosig\"\r\n})"
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cats patch')\r\nPATCH http://localhost:3000/cats/c18d902f-c7f8-4921-8b69-e8a75b61e080\r\njson({\r\n    \"name\": \"Patch\",\r\n    \"age\": 33,\r\n    \"breed\": \"danggn\"\r\n})"
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cats update')\r\nPUT http://localhost:3000/cats\r\njson({\r\n    \"id\": \"d28fc6be-3baf-4948-aa1f-897cd9e0b1a4\",\r\n    \"name\": \"Update111\",\r\n    \"age\": 4,\r\n    \"breed\": \"danggn111\"\r\n})"
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "@name('Cats remove')\r\nDELETE http://localhost:3000/cats/9be8e658-a264-432a-8a7c-9237a258f768"
+  outputs: []
+- kind: 1
+  language: markdown
+  value: '# Auth'
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: "POST http://localhost:3000/auth/register\r\njson({\r\n    \"username\": \"test01\",\r\n    \"password\": \"Tester Name\"\r\n})"
+  outputs:
+    - mime: x-application/dotbook
+      value: "{\n\t\"response\": {\n\t\t\"body\": \"\",\n\t\t\"output_file\": \"\",\n\t\t\"headers\": {},\n\t\t\"status\": 201,\n\t\t\"method\": \"POST\",\n\t\t\"url\": \"http://localhost:3000/auth/register\",\n\t\t\"response\": {\n\t\t\t\"body\": \"{\\\"username\\\":\\\"test01\\\",\\\"password\\\":\\\"$2b$10$Fm8mksxPofqa716NaVLCXeh.EcYaHvzBR53ZZOZjnHOKnrTvMbnWC\\\",\\\"id\\\":\\\"db5af366-7336-4f85-bb51-991a6efa3eb9\\\"}\",\n\t\t\t\"output_file\": \"\",\n\t\t\t\"headers\": {\n\t\t\t\t\"X-Powered-By\": \"Express\",\n\t\t\t\t\"Content-Type\": \"application/json; charset=utf-8\",\n\t\t\t\t\"Content-Length\": \"139\",\n\t\t\t\t\"ETag\": \"W/\\\"8b-h1K/RdQDgpLHbcnpNJsW+aOHGFE\\\"\",\n\t\t\t\t\"Date\": \"Mon, 29 Apr 2024 02:04:38 GMT\",\n\t\t\t\t\"Connection\": \"keep-alive\",\n\t\t\t\t\"Keep-Alive\": \"timeout=5\"\n\t\t\t},\n\t\t\t\"status\": 201,\n\t\t\t\"method\": \"POST\",\n\t\t\t\"url\": \"http://localhost:3000/auth/register\",\n\t\t\t\"contentType\": \"application/json\"\n\t\t},\n\t\t\"script_result\": {\n\t\t\t\"stdout\": \"\",\n\t\t\t\"error\": \"\",\n\t\t\t\"properties\": {},\n\t\t\t\"tests\": [],\n\t\t\t\"compiled\": true\n\t\t},\n\t\t\"http\": \"@name(\\\"1\\\")\\nPOST \\\"http://localhost:3000/auth/register\\\"\\njson({\\n    \\\"username\\\": \\\"test01\\\",\\n    \\\"password\\\": \\\"Tester Name\\\"\\n})\\n\\n\\n\",\n\t\t\"filenameExtension\": \"json\"\n\t},\n\t\"metadata\": {\n\t\t\"uri\": {\n\t\t\t\"$mid\": 1,\n\t\t\t\"fsPath\": \"d:\\\\dev\\\\workspace\\\\nest-first\\\\netapi\\\\api.hnbk\",\n\t\t\t\"_sep\": 1,\n\t\t\t\"external\": \"vscode-notebook-cell:/d%3A/dev/workspace/nest-first/netapi/api.hnbk#X11sZmlsZQ%3D%3D\",\n\t\t\t\"path\": \"/d:/dev/workspace/nest-first/netapi/api.hnbk\",\n\t\t\t\"scheme\": \"vscode-notebook-cell\",\n\t\t\t\"fragment\": \"X11sZmlsZQ==\"\n\t\t},\n\t\t\"cellNo\": 8,\n\t\t\"date\": \"2024-04-29--11-04-38\",\n\t\t\"target\": \"1\",\n\t\t\"executionTime\": \"0.1\"\n\t}\n}"
+    - mime: text/x-json
+      value: >-
+        {"username":"test01","password":"$2b$10$Fm8mksxPofqa716NaVLCXeh.EcYaHvzBR53ZZOZjnHOKnrTvMbnWC","id":"db5af366-7336-4f85-bb51-991a6efa3eb9"}
+- kind: 2
+  language: dothttp-vscode
+  value: "POST http://localhost:3000/auth/login\r\njson({\r\n    \"username\": \"test01\",\r\n    \"password\": \"Tester Name\"\r\n})"
+  outputs:
+    - mime: x-application/dotbook
+      value: "{\n\t\"response\": {\n\t\t\"body\": \"\",\n\t\t\"output_file\": \"\",\n\t\t\"headers\": {},\n\t\t\"status\": 201,\n\t\t\"method\": \"POST\",\n\t\t\"url\": \"http://localhost:3000/auth/login\",\n\t\t\"response\": {\n\t\t\t\"body\": \"{\\\"access_token\\\":\\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiNWFmMzY2LTczMzYtNGY4NS1iYjUxLTk5MWE2ZWZhM2ViOSIsInVzZXJuYW1lIjoidGVzdDAxIiwiaWF0IjoxNzE0MzU2Mjg5LCJleHAiOjE3MTQzNTY1ODl9.7WJPqIl-Dqdc4BGN2TTxpQRZy8MGXbzi0P432utUSek\\\"}\",\n\t\t\t\"output_file\": \"\",\n\t\t\t\"headers\": {\n\t\t\t\t\"X-Powered-By\": \"Express\",\n\t\t\t\t\"Content-Type\": \"application/json; charset=utf-8\",\n\t\t\t\t\"Content-Length\": \"232\",\n\t\t\t\t\"ETag\": \"W/\\\"e8-QYM/ZTbiiz2qCQJueB3ZJ5lhZZw\\\"\",\n\t\t\t\t\"Date\": \"Mon, 29 Apr 2024 02:04:49 GMT\",\n\t\t\t\t\"Connection\": \"keep-alive\",\n\t\t\t\t\"Keep-Alive\": \"timeout=5\"\n\t\t\t},\n\t\t\t\"status\": 201,\n\t\t\t\"method\": \"POST\",\n\t\t\t\"url\": \"http://localhost:3000/auth/login\",\n\t\t\t\"contentType\": \"application/json\"\n\t\t},\n\t\t\"script_result\": {\n\t\t\t\"stdout\": \"\",\n\t\t\t\"error\": \"\",\n\t\t\t\"properties\": {},\n\t\t\t\"tests\": [],\n\t\t\t\"compiled\": true\n\t\t},\n\t\t\"http\": \"@name(\\\"1\\\")\\nPOST \\\"http://localhost:3000/auth/login\\\"\\njson({\\n    \\\"username\\\": \\\"test01\\\",\\n    \\\"password\\\": \\\"Tester Name\\\"\\n})\\n\\n\\n\",\n\t\t\"filenameExtension\": \"json\"\n\t},\n\t\"metadata\": {\n\t\t\"uri\": {\n\t\t\t\"$mid\": 1,\n\t\t\t\"fsPath\": \"d:\\\\dev\\\\workspace\\\\nest-first\\\\netapi\\\\api.hnbk\",\n\t\t\t\"_sep\": 1,\n\t\t\t\"external\": \"vscode-notebook-cell:/d%3A/dev/workspace/nest-first/netapi/api.hnbk#X12sZmlsZQ%3D%3D\",\n\t\t\t\"path\": \"/d:/dev/workspace/nest-first/netapi/api.hnbk\",\n\t\t\t\"scheme\": \"vscode-notebook-cell\",\n\t\t\t\"fragment\": \"X12sZmlsZQ==\"\n\t\t},\n\t\t\"cellNo\": 9,\n\t\t\"date\": \"2024-04-29--11-04-49\",\n\t\t\"target\": \"1\",\n\t\t\"executionTime\": \"0.1\"\n\t}\n}"
+    - mime: text/x-json
+      value: >-
+        {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiNWFmMzY2LTczMzYtNGY4NS1iYjUxLTk5MWE2ZWZhM2ViOSIsInVzZXJuYW1lIjoidGVzdDAxIiwiaWF0IjoxNzE0MzU2Mjg5LCJleHAiOjE3MTQzNTY1ODl9.7WJPqIl-Dqdc4BGN2TTxpQRZy8MGXbzi0P432utUSek"}

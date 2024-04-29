@@ -93,5 +93,7 @@ SQLTools SQLite
 ## 설치파일
 
 ```
-npm install --save @nestjs/typeorm typeorm better-sqlite3
+npm install --save @nestjs/typeorm typeorm better-sqlite3 sqlite3
+npm install --save bcrypt @types/bcrypt
+npm install --save @nestjs/jwt
 ```
