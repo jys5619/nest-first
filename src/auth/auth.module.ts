@@ -5,17 +5,21 @@ import { UsersService } from 'src/users/users.service';
 import { UserRepository } from 'src/users/user.repository';
 import { TypeOrmExModule } from 'src/db/typeorm-ex.module';
 import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from './security/jwt-contants';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './security/jwt-strategy';
 
 @Module({
   imports: [
     TypeOrmExModule.forCustomRepository([UserRepository]),
     JwtModule.register({
-      secret: 'SECRET_KEY',
+      secret: jwtConstants.secret,
       signOptions: { expiresIn: '300s' },
     }),
+    PassportModule,
   ],
-  exports: [TypeOrmExModule],
+  exports: [TypeOrmExModule, JwtStrategy, PassportModule],
   controllers: [AuthController],
-  providers: [AuthService, UsersService],
+  providers: [AuthService, UsersService, JwtStrategy],
 })
 export class AuthModule {}

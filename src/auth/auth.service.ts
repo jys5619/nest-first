@@ -43,8 +43,16 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const payload: Payload = { id: userFind.id, username: userFind.username };
-    return {
+    const result = {
       access_token: await this.jwtService.signAsync(payload),
     };
+    console.log(result);
+    return result;
+  }
+
+  async tokenValidateUser(payload: Payload): Promise<UserDto | undefined> {
+    return await this.userService.findByField({
+      where: { id: payload.id },
+    });
   }
 }

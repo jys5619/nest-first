@@ -96,4 +96,5 @@ SQLTools SQLite
 npm install --save @nestjs/typeorm typeorm better-sqlite3 sqlite3
 npm install --save bcrypt @types/bcrypt
 npm install --save @nestjs/jwt
+npm install --save @nestjs/passport @types/passport-jwt passport-jwt
 ```
