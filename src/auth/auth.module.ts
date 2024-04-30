@@ -8,13 +8,17 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './security/jwt-contants';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './security/jwt-strategy';
+import { UserAuthorityRepository } from './security/user-authority.repository';
 
 @Module({
   imports: [
-    TypeOrmExModule.forCustomRepository([UserRepository]),
+    TypeOrmExModule.forCustomRepository([
+      UserRepository,
+      UserAuthorityRepository,
+    ]),
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '300s' },
+      signOptions: { expiresIn: 60 * 60 * 10 },
     }),
     PassportModule,
   ],

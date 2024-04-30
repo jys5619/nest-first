@@ -42,7 +42,14 @@ export class AuthService {
     if (!isMatch) {
       throw new UnauthorizedException();
     }
-    const payload: Payload = { id: userFind.id, username: userFind.username };
+    const payload: Payload = {
+      id: userFind.id,
+      username: userFind.username,
+      authorities: userFind.authorities
+        ? userFind.authorities.map((d) => d.authorityName)
+        : [],
+    };
+    console.log('payload', payload);
     const result = {
       access_token: await this.jwtService.signAsync(payload),
     };
@@ -50,9 +57,13 @@ export class AuthService {
     return result;
   }
 
-  async tokenValidateUser(payload: Payload): Promise<UserDto | undefined> {
-    return await this.userService.findByField({
+  async tokenValidateUser(payload: Payload): Promise<Payload> {
+    const findUser = await this.userService.findByField({
       where: { id: payload.id },
     });
+    if (!findUser) {
+      throw new UnauthorizedException('Token Expired!!');
+    }
+    return payload;
   }
 }

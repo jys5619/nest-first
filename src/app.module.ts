@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entites/user.entity';
 import { CatsModule } from './cats/cats.module';
+import { UserAuthority } from './auth/security/user-authority.entity';
 
 @Module({
   imports: [
@@ -14,10 +15,10 @@ import { CatsModule } from './cats/cats.module';
       type: 'better-sqlite3',
       database: 'nest-first.db',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
       logging: true,
-      dropSchema: true,
-      entities: [User],
+      dropSchema: false,
+      entities: [User, UserAuthority],
     }),
     CatsModule,
     UsersModule,

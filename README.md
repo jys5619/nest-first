@@ -98,3 +98,9 @@ npm install --save bcrypt @types/bcrypt
 npm install --save @nestjs/jwt
 npm install --save @nestjs/passport @types/passport-jwt passport-jwt
 ```
+
+```sql
+CREATE TABLE "cat" ("id" varchar PRIMARY KEY NOT NULL, "name" varchar NOT NULL, "age" integer NOT NULL, "breed" varchar NOT NULL);
+CREATE TABLE "user" ("id" varchar PRIMARY KEY NOT NULL, "username" varchar NOT NULL, "password" varchar NOT NULL);
+CREATE TABLE "user_authority" ("id" varchar PRIMARY KEY NOT NULL, "user_id" varchar NOT NULL, "authority_name" varchar NOT NULL, CONSTRAINT "FK_dc0d85509f915aa314bbfd696b7" FOREIGN KEY ("user_id") REFERENCES "user" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION);
+```
