@@ -5,21 +5,12 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { User } from './users/entites/user.entity';
 import { CatsModule } from './cats/cats.module';
-import { UserAuthority } from './auth/security/user-authority.entity';
+import { ormConfig } from './orm.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'better-sqlite3',
-      database: 'nest-first.db',
-      autoLoadEntities: true,
-      synchronize: false,
-      logging: true,
-      dropSchema: false,
-      entities: [User, UserAuthority],
-    }),
+    TypeOrmModule.forRootAsync({ useFactory: ormConfig }),
     CatsModule,
     UsersModule,
     AuthModule,

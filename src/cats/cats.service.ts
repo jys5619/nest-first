@@ -3,7 +3,7 @@ import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
-import { Cat } from './entities/cat.entity';
+import { Cat } from '../domain/cat.entity';
 
 @Injectable()
 export class CatsService {

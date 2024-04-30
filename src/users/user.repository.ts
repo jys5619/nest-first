@@ -1,4 +1,4 @@
-import { User } from './entites/user.entity';
+import { User } from '../domain/user.entity';
 import { Repository } from 'typeorm';
 import { CustomRepository } from 'src/db/typeorm-ex.decorator';
 

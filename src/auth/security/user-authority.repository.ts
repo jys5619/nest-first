@@ -1,5 +1,5 @@
 import { CustomRepository } from 'src/db/typeorm-ex.decorator';
-import { UserAuthority } from './user-authority.entity';
+import { UserAuthority } from '../../domain/user-authority.entity';
 import { Repository } from 'typeorm';
 
 @CustomRepository(UserAuthority)

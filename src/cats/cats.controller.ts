@@ -11,7 +11,7 @@ import {
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
-import { Cat } from './entities/cat.entity';
+import { Cat } from '../domain/cat.entity';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
 @Controller('cats')

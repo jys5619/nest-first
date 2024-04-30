@@ -5,7 +5,7 @@ import { ExtractJwt, Strategy, VerifiedCallback } from 'passport-jwt';
 import { UserRepository } from 'src/users/user.repository';
 import { jwtConstants } from './jwt-contants';
 import { Payload } from './payload.interface';
-import { User } from 'src/users/entites/user.entity';
+import { User } from 'src/domain/user.entity';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

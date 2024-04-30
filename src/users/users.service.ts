@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserDto } from './dto/user.dto';
 import { FindOneOptions } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { User } from 'src/domain/user.entity';
 
 @Injectable()
 export class UsersService {
@@ -11,6 +12,10 @@ export class UsersService {
     @InjectRepository(UserRepository)
     private readonly userRepository: UserRepository,
   ) {}
+
+  async findAll(): Promise<User[]> {
+    return await this.userRepository.find();
+  }
 
   async findByField(option: FindOneOptions<UserDto | undefined>) {
     return await this.userRepository.findOne(option);

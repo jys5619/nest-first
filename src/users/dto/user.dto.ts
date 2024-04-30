@@ -1,4 +1,4 @@
-import { UserAuthority } from 'src/auth/security/user-authority.entity';
+import { UserAuthority } from 'src/domain/user-authority.entity';
 
 export class UserDto {
   id: string;
